@@ -21,16 +21,7 @@
 # Given a list of numbers, this function returns the largest one,
 # it does it using `reduce` function.
 def max_in_list_v1( numbers ):
-
-    def compare( x, y ):
-
-        if y > x:
-            return y
-
-        return x
-
-    largest = reduce_v1( compare, numbers )
-    return largest
+    pass
 
 
 # 27. Map strings
@@ -38,23 +29,21 @@ def max_in_list_v1( numbers ):
 # word length.
 # It uses the `map()` higher-order-function.
 def map_words_v1( words ):
-    return map( len, words )
+    pass
 
 
 # 27.1 Map strings.
 # Does the same as #27 but uses `List comprehensions`.
 # See http://www.secnetix.de/olli/Python/list_comprehensions.hawk
 def map_words_v2( words ):
-    return [ len( word ) for word in words ]
+    pass
 
 
 # 28. Find longest word.
 # Using high-order-functions, this function receives a list of words,
 # and return the longest one.
 def find_longest_word_advanced( words ):
-
-    largest = max( words, key = len )
-    return len( largest )
+    pass
 
 
 # 29. Filter Long Words.
@@ -62,11 +51,7 @@ def find_longest_word_advanced( words ):
 # an array with all the words that are longer in length that
 # the integer passed.
 def filter_long_words_advanced( words, x ):
-
-    validate = lambda word: len( word ) >= x
-    filtered_words = filter( validate, words )
-
-    return filtered_words
+    pass
 
 
 # 30. Translates a list of words from English into Swedish.
@@ -83,10 +68,7 @@ def translate_words( words ):
         'merry': 'merry', 'new': 'nya',  'thanks': 'tack', 'the': 'den', 'to': 'till', 'true': 'sant', 'us': 'oss', 'we': 'vi',
         'wishes': 'önskemål', 'year': 'år', 'your': 'din' }
 
-    to_swedish = lambda word: d[ word ]
-    translated = map_v1( to_swedish, words )
-
-    return translated
+    pass
 
 
 # 31. Map.
@@ -96,12 +78,7 @@ def translate_words( words ):
 # The following function is an implementation of the functionality that
 # `map()` accomplishes.
 def map_v1( fn, iterable ):
-
-    result = []
-    for v in iterable:
-        result.append( fn( v ) )
-
-    return result
+    pass
 
 
 # 31.1 Filter.
@@ -110,14 +87,7 @@ def map_v1( fn, iterable ):
 # in the list, and return a list with only the elements that when passed to `f`
 # made `f` return true.
 def filter_v1( fn, iterable ):
-
-    result = []
-
-    for v in iterable:
-        if fn( v ):
-            result.append( v )
-
-    return result
+    pass
 
 
 # 31.2 Reduce.
@@ -136,15 +106,5 @@ def filter_v1( fn, iterable ):
 #  -> 15
 #
 def reduce_v1( fn, iterable ):
-
-    result, l = '', iterable
-    result = fn( l[ 0 ], l[ 1 ] )
-
-    l.pop( 0 )
-    l.pop( 0 )
-
-    for x in l:
-        result = fn( result, x )
-
-    return result
+    pass
 
