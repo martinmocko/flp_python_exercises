@@ -21,7 +21,7 @@ To execute a function from the set, just clone the repository or download the .z
 which the exercise you want to run is in and then call it.
 
 ```bash
-$ git clone https://github.com/PabloVallejo/python-exercises.git
+$ git clone https://github.com/sevo/flp_python_exercises.git
 $ cd python-exercises/sections
 $ python
 
