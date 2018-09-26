@@ -63,10 +63,10 @@ def filter_long_words_advanced( words, x ):
 #
 def translate_words( words ):
 
-    d = { 'all': 'alla', 'and': 'och', 'best': 'bäst', 'birthday': 'födelsedag', 'cake': 'kaka', 'celebrate': 'fira', 'christmas': 'jul',
-        'come': 'komma', 'dreams': 'drömmar', 'for': 'för', 'good': 'bra', 'happy': 'happy', 'hope': 'hopp', 'inviting': 'inbjudande', 'is': 'är',
-        'merry': 'merry', 'new': 'nya',  'thanks': 'tack', 'the': 'den', 'to': 'till', 'true': 'sant', 'us': 'oss', 'we': 'vi',
-        'wishes': 'önskemål', 'year': 'år', 'your': 'din' }
+#    d = { 'all': 'alla', 'and': 'och', 'best': 'bäst', 'birthday': 'födelsedag', 'cake': 'kaka', 'celebrate': 'fira', 'christmas': 'jul',
+#        'come': 'komma', 'dreams': 'drömmar', 'for': 'för', 'good': 'bra', 'happy': 'happy', 'hope': 'hopp', 'inviting': 'inbjudande', 'is': 'är',
+#        'merry': 'merry', 'new': 'nya',  'thanks': 'tack', 'the': 'den', 'to': 'till', 'true': 'sant', 'us': 'oss', 'we': 'vi',
+#        'wishes': 'önskemål', 'year': 'år', 'your': 'din' }
 
     pass
 

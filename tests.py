@@ -26,16 +26,30 @@ import random
 import unittest
 import exercises
 
+def is_empty_function(func):
+    """
+    Tests if a function is empty. Useful so that we can skip tests for empty (not yet implemented) functions.
+    """
+    def empty_func():
+        pass
+
+    def empty_func_with_doc():
+        """Empty function with docstring."""
+        pass
+
+    return func.__code__.co_code == empty_func.__code__.co_code or \
+        func.__code__.co_code == empty_func_with_doc.__code__.co_code
 
 # Test
 class TestSequenceFunctions( unittest.TestCase ):
 
     # Initialize
-    def setUp( self ):
+    def setUp( self ):      
         self.seq = range( 10 )
 
 
     # 1. max()
+    @unittest.skipIf(is_empty_function(exercises.max_num),"skipping test_max")
     def test_max( self ):
         a, b = 10, 20
 
@@ -49,6 +63,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 2. max_of_three()
+    @unittest.skipIf(is_empty_function(exercises.max_of_three),"skipping test_max_of_three")
     def test_max_of_three( self ):
         a, b, c = 10, 20, 40
 
@@ -62,6 +77,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 3. str_len()
+    @unittest.skipIf(is_empty_function(exercises.str_len),"skipping test_str_len")
     def test_str_len( self ):
         string = 'Sample string'
 
@@ -70,6 +86,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 4. is_vowel()
+    @unittest.skipIf(is_empty_function(exercises.is_vowel),"skipping test_is_vowel")
     def test_is_vowel( self ):
         a, b = 'a', 'z'
 
@@ -81,6 +98,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
     #
     # 5. translate()
+    @unittest.skipIf(is_empty_function(exercises.translate),"skipping test_translate")
     def test_translate( self ):
         original, translated = 'This is fun', 'Tothohisos isos fofunon'
 
@@ -88,6 +106,7 @@ class TestSequenceFunctions( unittest.TestCase ):
         self.assertEqual( translate, translated )
 
     # 6. sum()
+    @unittest.skipIf(is_empty_function(exercises.sum),"skipping test_sum")
     def test_sum( self ):
         items = [ 1, 2, 3, 4, 5 ]
         total = exercises.sum( items )
@@ -96,6 +115,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 6.1 multiply()
+    @unittest.skipIf(is_empty_function(exercises.multiply),"skipping test_multiply")
     def test_multiply( self ):
         items = [ 1, 2, 3, 4, 5 ]
         total = exercises.multiply( items )
@@ -103,6 +123,7 @@ class TestSequenceFunctions( unittest.TestCase ):
         self.assertEqual( total, 120 )
 
     # 7. reverse()
+    @unittest.skipIf(is_empty_function(exercises.reverse),"skipping test_reverse")
     def test_reverse( self ):
         string = 'I am testing'
         truncated = exercises.reverse( string )
@@ -110,6 +131,7 @@ class TestSequenceFunctions( unittest.TestCase ):
         self.assertEqual( truncated, 'gnitset ma I' )
 
     # 8. is_palidrome()
+    @unittest.skipIf(is_empty_function(exercises.is_palindrome),"skipping test_is_palindrome")
     def test_is_palindrome( self ):
         string = 'radar'
 
@@ -117,6 +139,7 @@ class TestSequenceFunctions( unittest.TestCase ):
         self.assertTrue( is_palindrome )
 
     # 9. is_member()
+    @unittest.skipIf(is_empty_function(exercises.is_member),"skipping test_is_member")
     def test_is_member( self ):
         val = 's'
         group = [ 'sample', 's', 1 ]
@@ -126,6 +149,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 10. overlapping()
+    @unittest.skipIf(is_empty_function(exercises.overlapping),"skipping test_overlapping")
     def test_overlapping( self ):
 
         a, b, c = [ 1, 2, 3, 4 ], [ 7, 6, 5, 4 ], [ 9, 8 ]
@@ -138,6 +162,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 11. generate_n_char()
+    @unittest.skipIf(is_empty_function(exercises.generate_n_chars),"skipping test_generate_n_chars")
     def test_generate_n_chars( self ):
 
         char, times = 'x', 5
@@ -149,12 +174,14 @@ class TestSequenceFunctions( unittest.TestCase ):
     # 12. historygram()
     # As this function generates output
     # it will not be tested.
+    @unittest.skipIf(is_empty_function(exercises.historigram),"skipping test_historygram")
     def test_historygram( self ):
         description = [ 1, 2, 3, 4, 5 ]
         exercises.historigram( description )
 
 
     # 13. max_in_list()
+    @unittest.skipIf(is_empty_function(exercises.max_in_list),"skipping test_max_in_list")
     def test_max_in_list( self ):
 
         list = [ 1, 2, 3, 4, 44, 6, 10, 7 ]
@@ -164,6 +191,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 14. map_words()
+    @unittest.skipIf(is_empty_function(exercises.map_words),"skipping test_map_words")
     def test_map_words( self ):
 
         words = [ 'one', 'two', 'three', 'four' ]
@@ -173,6 +201,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 15. longest_word()
+    @unittest.skipIf(is_empty_function(exercises.longest_word),"skipping test_longest_word")
     def test_longest_word( self ):
 
         words = [ 'Sheena', 'leads', 'Shelia', 'needs' ]
@@ -182,6 +211,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 16. filter_words()
+    @unittest.skipIf(is_empty_function(exercises.filter_long_words),"skipping test_filter_words")
     def test_filter_words( self ):
 
         words = [ 'How', 'can', 'a', 'clam', 'cram', 'in', 'a', 'clean', 'cream', 'can?' ]
@@ -191,6 +221,8 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 17. is_palindrome_advanced()
+    @unittest.skipIf(is_empty_function(exercises.is_palindrome_advanced),
+        "skipping test_is_palindrome_advanced")
     def test_is_palindrome_advanced( self ):
 
         # string = 'Was it a rat I saw?'
@@ -202,6 +234,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 18. is_panagram()
+    @unittest.skipIf(is_empty_function(exercises.is_pangram),"skipping test_is_pangram")
     def test_is_pangram( self ):
 
         phrase = 'The quick brown fox jumps over the lazy dog'
@@ -213,11 +246,13 @@ class TestSequenceFunctions( unittest.TestCase ):
     # # 19. 99 Bottles of Beer
     # # As this function produces output,it is
     # # not tested
+    @unittest.skipIf(is_empty_function(exercises.sing_99_bottles_of_beer),"skipping test_99_bottles_of_beer")
     def test_99_bottles_of_beer( self ):
         exercises.sing_99_bottles_of_beer()
 
     #
     # # 21. char_freq()
+    @unittest.skipIf(is_empty_function(exercises.char_freq),"skipping test_char_freq")
     def test_char_freq( self ):
 
         string = 'aabbccdddeeeefffff'
@@ -228,6 +263,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 22. rot_13_encrypt()
+    @unittest.skipIf(is_empty_function(exercises.rot_13_encrypt),"skipping test_rot_13_encrypt")
     def test_rot_13_encrypt( self ):
         string = 'Caesar cipher? I much prefer Caesar salad!'
         intended = 'Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!'
@@ -237,6 +273,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # # 22.1 rot_13_decrypt()
+    @unittest.skipIf(is_empty_function(exercises.rot_13_decrypt),"skipping test_rot_13_decrypt")
     def test_rot_13_decrypt( self ):
         intended = 'Caesar cipher? I much prefer Caesar salad!'
         string = 'Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!'
@@ -246,6 +283,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
     #
     # 23. correct()
+    @unittest.skipIf(is_empty_function(exercises.correct),"skipping test_correct")
     def test_correct( self ):
 
         string = 'This is a.Bad  formatted string.It      is to be fixed.'
@@ -254,16 +292,17 @@ class TestSequenceFunctions( unittest.TestCase ):
         self.assertEqual( 'This is a. Bad formatted string. It is to be fixed.', corrected )
 
     # 24. make_3d_form()
-    def test_make_3d_form( self ):
+    # @unittest.skipIf(is_empty_function(exercises.make_3d_form),"skipping test_make_3d_form")
+    # def test_make_3d_form( self ):
 
-        words = [ 'brush', 'run', 'fix', 'carry' ]
-        spec, results = [ 'brushes', 'runs', 'fixes', 'carries' ], []
+    #     words = [ 'brush', 'run', 'fix', 'carry' ]
+    #     spec, results = [ 'brushes', 'runs', 'fixes', 'carries' ], []
 
-        for word in words:
-            third_form = exercises.make_3d_form( word )
-            results.append( third_form )
+    #     for word in words:
+    #         third_form = exercises.make_3d_form( word )
+    #         results.append( third_form )
 
-        self.assertEqual( spec, results )
+    #     self.assertEqual( spec, results )
 
     #############################################################################
     #############################################################################
@@ -273,19 +312,21 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 25. make_ing_form()
-    def test_make_ing_form( self ):
+    # @unittest.skipIf(is_empty_function(exercises.make_ing_form),"skipping test_make_ing_form")
+    # def test_make_ing_form( self ):
 
-        words = [ 'sleep', 'write', 'die', 'eat', 'begin' ]
-        spec, results = [ 'sleeping', 'writing', 'dying', 'eating', 'beginning' ], []
+    #     words = [ 'sleep', 'write', 'die', 'eat', 'begin' ]
+    #     spec, results = [ 'sleeping', 'writing', 'dying', 'eating', 'beginning' ], []
 
-        for word in words:
-            ing_form = exercises.make_ing_form( word )
-            results.append( ing_form )
+    #     for word in words:
+    #         ing_form = exercises.make_ing_form( word )
+    #         results.append( ing_form )
 
-        self.assertEqual( results, spec )
+    #     self.assertEqual( results, spec )
 
 
     # 26. max_in_list_v1()
+    @unittest.skipIf(is_empty_function(exercises.max_in_list_v1),"skipping test_max_in_list_v1")
     def test_max_in_list_v1( self ):
 
         numbers, spec = [ 5, 19, 10, 2, 7 ], 19
@@ -295,6 +336,8 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 27. map_words_v1()
+    @unittest.skipIf(is_empty_function(exercises.map_words_v1) or is_empty_function(exercises.map_words_v2),
+        "skipping test_map_words_v1")
     def test_map_words_v1( self ):
 
         words, spec = [ 'Gorilla', 'Monkey', 'Tiger', 'Giraffe' ], [ 7, 6, 5, 7 ]
@@ -305,6 +348,8 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 28. find_longest_word_advanced()
+    @unittest.skipIf(is_empty_function(exercises.find_longest_word_advanced),
+        "skipping test_find_longest_word_advanced")
     def test_find_longest_word_advanced( self ):
 
         words = [ 'house', 'happiness', 'skateboarding', 'landscape'  ]
@@ -314,6 +359,8 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 29. filter_long_words_advanced()
+    @unittest.skipIf(is_empty_function(exercises.filter_long_words_advanced),
+        "skipping test_find_longest_word_advanced")
     def test_find_long_words_advanced( self ):
 
         words = [ 'one', 'two', 'three', 'four', 'five', 'eighty' ]
@@ -324,6 +371,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 30 translate_words()
+    @unittest.skipIf(is_empty_function(exercises.translate_words),"skipping test_translate_words")
     def test_translate_words( self ):
         words = [ 'merry', 'christmas', 'and', 'happy', 'new', 'year' ]
         spec = [ 'merry', 'jul', 'och', 'happy', 'nya', '\xc3\xa5r' ]
@@ -333,6 +381,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 31. map_v1()
+    @unittest.skipIf(is_empty_function(exercises.map_v1),"skipping test_map_v1")
     def test_map_v1( self ):
         items, spec = [ 'one', 'two', 'three' ], [ 3, 3, 5 ]
         result = exercises.map_v1( len, items )
@@ -341,6 +390,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 31.1 filter_v1()
+    @unittest.skipIf(is_empty_function(exercises.filter_v1),"skipping test_filter_v1")
     def test_filter_v1( self ):
         items, spec = [ 'one', 'two', 'three', 'four' ], [ 'three', 'four' ]
         fn = lambda x: len( x ) > 3
@@ -350,6 +400,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 31.2 reduce_v1()
+    @unittest.skipIf(is_empty_function(exercises.reduce_v1),"skipping test_reduce_v1")
     def test_reduce_v1( self ):
 
         numbers, spec = [ 1, 2, 3, 4, 5 ], 15
@@ -360,6 +411,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 32. find_palidromes()
+    @unittest.skipIf(is_empty_function(exercises.find_palidromes),"skipping test_find_palindeomes")
     def test_find_palindeomes( self ):
 
         spec = [ 'Satan, oscillate my metallic sonatas\n', 'Was it a rat I saw?\n', 'Rise to vote sir\n' ]
@@ -369,6 +421,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 33. find_semordnilaps()
+    @unittest.skipIf(is_empty_function(exercises.find_semordnilaps),"skipping test_find_semordnilaps")
     def test_find_semordnilaps( self ):
 
         spec = [ 'palindromes', 'semordnilap', 'desserts', 'stressed' ]
@@ -391,6 +444,7 @@ class TestSequenceFunctions( unittest.TestCase ):
         # exercises.speak_ICAO( string, 0, 1 )
 
     # 36. find_hapax_legomenons()
+    @unittest.skipIf(is_empty_function(exercises.find_hapax_legomenons),"skipping test_hapax_legomenon")
     def test_hapax_legomenon( self ):
 
         ideal = [ 'and', 'valleys', 'over', 'it', 'greenest', 'seraph', 'our', 'its', 'stood', 'stately', 'there', 'spread', 'monarch', 'angels', 'head', 'good',
@@ -401,6 +455,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 37. copy_file_count_lines()
+    @unittest.skipIf(is_empty_function(exercises.copy_file_count_lines),"skipping test_copy_file_count")
     def test_copy_file_count( self ):
 
         ideal = "1 O! nothing earthly save the ray\n2 (Thrown back from flowers) of Beauty's eye,"
@@ -414,6 +469,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 38. average_word_length()
+    @unittest.skipIf(is_empty_function(exercises.average_word_length),"skipping test_average_word_length")
     def test_average_word_length( self ):
 
         ideal_average = 3
@@ -438,6 +494,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 41, lingo()
+    @unittest.skipIf(is_empty_function(exercises.lingo),"skipping test_lingo")
     def test_lingo( self ):
 
         word, guess, spec = 'Tiger', 'Finger', 'F[i]n(g)(e)(r)'
@@ -455,12 +512,14 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 43. find_anagrams()
+    @unittest.skipIf(is_empty_function(exercises.find_anagrams),"skipping test_find_anagrams")
     def test_find_anagrams( self ):
         anagrams = exercises.find_anagrams( 'data/words-43.md' )
         self.assertTrue( isinstance( anagrams, list ) )
 
 
     # 44.0 validate_brackets()
+    @unittest.skipIf(is_empty_function(exercises.validate_brackets),"skipping test_validate_brackets")
     def test_validate_brackets( self ):
 
         string = '[[ [][] ]]'
@@ -477,6 +536,7 @@ class TestSequenceFunctions( unittest.TestCase ):
 
 
     # 45. words_domino()
+    @unittest.skipIf(is_empty_function(exercises.words_domino),"skipping test_words_domino")
     def test_words_domino( self ):
 
         spec = [ 'baltoy', 'yamask', 'kangaskhan', 'nosepass', 'sableye', 'emboar', 'registeel', 'landorus', 'scolipede', 'emolga' ]
